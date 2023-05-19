@@ -1,41 +1,46 @@
 ﻿
-var Words = new List<string> {"Baum", "Fortnite"};
-int index = Random.Shared.Next(Words.Count);
+using System.Net;
 
-string un = "_";
+string Word = "Fortnite";
+
 string bconv;
+string guess;
+string hiddenwrd = "";
+
+
+
+
+
+
+foreach (char a in Word)
+{
+    hiddenwrd += "_";
+}
+
+
 do
 {
-
-    Console.WriteLine("Guess a the Words");
-    string guess = Console.ReadLine();
-
-    Console.Clear();
-
-    foreach (char b in Words[index])
+    Console.WriteLine(hiddenwrd);
+    Console.WriteLine("\n\nHangman! \nGuess a word");
+    guess = Console.ReadLine();
+    
+    foreach (char b in Word)
     {
+
 
         bconv = Convert.ToString(b);
 
 
-        if (guess != bconv)
+        if (guess == bconv)
         {
-            Console.Write(un);
+            hiddenwrd += guess;
         }
 
-        else
-        {
-            Console.Write(guess);
-        }
-
-        
     }
 
 
-
-    Console.WriteLine("\n");
- 
 } while (true);
+
 
 
 
